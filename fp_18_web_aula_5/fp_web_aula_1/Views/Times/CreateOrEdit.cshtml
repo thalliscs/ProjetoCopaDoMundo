@@ -1,0 +1,57 @@
+﻿@model fp_web_aula_1.ViewModel.TimeViewModel
+
+@{
+    ViewData["Title"] = "Cadastro Times";
+}
+
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Times</h3>
+        <a href="/Times/Index" class="btn btn-primary">Voltar</a>
+    </div>
+</div>
+<hr>
+<form class="" asp-action="CreateOrEdit" asp-controller="Times" asp-anti-forgery">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Nome</label>
+            <input type="text" class="form-control" asp-for="Nome" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Site</label>
+            <input type="text" class="form-control" asp-for="Site" />
+            <span asp-validation-for="Site" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Bandeira</label>
+            <input type="text" class="form-control" asp-for="Bandeira" />
+            <span asp-validation-for="Bandeira" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <img src="@Model.Bandeira" alt="@Model.Nome" class="img-thumbnail">
+        </div>
+    </div>
+    
+    <div class="row col-md-4">
+        <button class="btn btn-success">Salvar</button>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

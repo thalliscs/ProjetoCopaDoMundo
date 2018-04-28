@@ -1,0 +1,49 @@
+﻿@model List<fp_web_aula_1.ViewModel.JogadorViewModel>
+
+
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Jogadores</h3>
+        <a href="/Jogador/CreateOrEdit" class="btn btn-primary pull-right">Novo</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Posição</th>
+                    <th scope="col">Camisa</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var jogador in @Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="name">@jogador.Nome</span>
+                        </td>
+                        <td>
+                            <span class="name">@jogador.NomeTime</span>
+                        </td>
+                        <td>
+                            <span class="name">@jogador.Posicao</span>
+                        </td>
+                        <td>
+                            <span class="name">@jogador.Camisa</span>
+                        </td>
+                        <td>
+                            <a href="/Jogador/CreateOrEdit/@jogador.Id" class="btn">Editar</a>
+                            <a href="/Jogador/Delete/@jogador.Id" class="btn">Excluir</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

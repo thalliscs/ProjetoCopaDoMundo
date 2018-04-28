@@ -1,0 +1,41 @@
+﻿@model List<fp_web_aula_1.ViewModel.TimeViewModel>
+
+
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Times</h3>
+        <a href="/Times/CreateOrEdit" class="btn btn-primary pull-right">Novo</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Site</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var time in @Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="name">@time.Nome</span>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" title="@time.Nome" target="_blank">@time.Site</a>
+                        </td>
+                        <td>
+                            <a href="/Times/CreateOrEdit/@time.Id" class="btn">Editar</a>
+                            <a href="/Times/Delete/@time.Id" class="btn">Excluir</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
